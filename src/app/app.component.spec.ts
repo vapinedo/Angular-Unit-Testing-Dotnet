@@ -42,4 +42,12 @@ describe('AppComponent', () => {
     const output = addition(10, 20);
     expect(output).toBe(30);
   });
+
+  it("should toBe and toEqual test case", () => {
+    let a = "hello";
+    let b = "hello";
+    let c = [1, 2, 3];
+    let d = [1, 2, 3];
+    expect(c).toBe(d);
+  });
 });
