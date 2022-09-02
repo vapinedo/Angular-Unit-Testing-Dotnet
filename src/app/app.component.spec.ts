@@ -46,8 +46,9 @@ describe('AppComponent', () => {
   it("should toBe and toEqual test case", () => {
     let a = "hello";
     let b = "hello";
-    let c = [1, 2, 3];
-    let d = [1, 2, 3];
-    expect(c).toBe(d);
+    let x = [1, 2, 3];
+    let y = [1, 2, 3];
+    expect(a).toBe(b);
+    expect(x).toEqual(y);
   });
 });
