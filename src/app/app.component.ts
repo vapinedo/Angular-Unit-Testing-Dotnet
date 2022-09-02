@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-unit-testing-dotnet';
+
+  showMessage(msg: string): string {
+    return msg;
+  }
 }

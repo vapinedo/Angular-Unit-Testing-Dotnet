@@ -1,7 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { addition } from './Calculator';
 
 describe('AppComponent', () => {
+  let component = new AppComponent();
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
@@ -27,5 +30,16 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.content span')?.textContent).toContain('angular-unit-testing-dotnet app is running!');
+  });
+
+  it("should show an alert message", () => {
+    const message = "Hello";
+    const output = component.showMessage(message);
+    expect(output).toBe(message);
+  });
+
+  it("should the addition result", () => {
+    const output = addition(10, 20);
+    expect(output).toBe(30);
   });
 });
