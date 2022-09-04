@@ -51,4 +51,12 @@ describe('AppComponent', () => {
     expect(a).toBe(b);
     expect(x).toEqual(y);
   });
+
+  it("should toBeGreaterThan", () => {
+    let a = 5;
+    expect(a).toBeGreaterThan(4);
+    expect(a).toBeGreaterThanOrEqual(a);
+    expect(a).toBeLessThan(10);
+    expect(a).toBeLessThanOrEqual(a);
+  });
 });
