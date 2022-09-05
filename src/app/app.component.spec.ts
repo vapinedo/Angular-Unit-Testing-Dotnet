@@ -59,4 +59,16 @@ describe('AppComponent', () => {
     expect(a).toBeLessThan(10);
     expect(a).toBeLessThanOrEqual(a);
   });
+
+  it("should toMatch", () => {
+    let input = "Real Madrid FC";
+    expect(input).toMatch(/adrid/);
+    expect(input).not.toMatch(/madrid/); // not madrid, but Madrid
+  });
+
+  it("should toBeCloseTo matcher", () => {
+    const PI = 3.1415926;
+    const e = 2.78;
+    expect(PI).not.toBeCloseTo(e);
+  });
 });
