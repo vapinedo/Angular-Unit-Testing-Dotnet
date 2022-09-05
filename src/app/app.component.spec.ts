@@ -85,4 +85,39 @@ describe('AppComponent', () => {
     expect(addOperation).toBeDefined();
     expect(favoriteSoccerTeam).toBeUndefined();
   });
+
+  it("should toBeNull", () => {
+    let favoriteSerie = null;
+    expect(favoriteSerie).toBeNull();
+    expect(null).toBeNull();
+  });
+
+  it("shoud toContain", function() {
+    const nominatedBestPlayers = ["Benzema", "mbappe", "ronaldo"];
+    expect(nominatedBestPlayers).not.toContain("messi");
+    expect(nominatedBestPlayers).not.toContain("benzema"); // case sensitive
+    expect(nominatedBestPlayers).toContain("Benzema");
+  });
+
+  it("should toBeNaN", function() {
+    const invalidNumber = NaN;
+    const validNumber = 33;
+    expect(invalidNumber).toBeNaN();
+    expect(validNumber).not.toBeNaN();
+    expect(0/0).toBeNaN();
+    expect(5/0).not.toBeNaN(); // not NaN, but Infinity
+    expect(0/5).not.toBeNaN(); // not NaN, but Zero
+  });
+
+  it("should toBePositiveInfinity", function() {
+    expect(Infinity).toBePositiveInfinity();
+    expect(5/0).toBePositiveInfinity();
+  });
+
+  it("should toBeNegativeInfinity", function() {
+    expect(-Infinity).toBeNegativeInfinity();
+    expect(5/-0).toBeNegativeInfinity();
+    expect(-5/0).toBeNegativeInfinity();
+  });
+  
 });
