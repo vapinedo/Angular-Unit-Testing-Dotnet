@@ -71,4 +71,18 @@ describe('AppComponent', () => {
     const e = 2.78;
     expect(PI).not.toBeCloseTo(e);
   });
+
+  it("should toBeDefined & toBeUndefined matchers", () => {
+    let personObj = {
+      name: "Valp",
+    };
+    const addOperation = function add(a: number, b: number) {
+      return a+b;
+    };
+    let favoriteSoccerTeam;
+    expect(personObj).toBeDefined();
+    expect("Hello world").toBeDefined();
+    expect(addOperation).toBeDefined();
+    expect(favoriteSoccerTeam).toBeUndefined();
+  });
 });
