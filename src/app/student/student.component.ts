@@ -8,7 +8,7 @@ import { StudentService } from '../services/student.service';
 })
 export class StudentComponent implements OnInit {
   additonResult: number = 0;
-  result: any;
+  studentApprovalState: any;
 
   constructor(private studentSvc: StudentService) { }
 
@@ -28,13 +28,13 @@ export class StudentComponent implements OnInit {
 
     this.logToConsole(info);
     this.studentSvc.saveDetails(info).subscribe(response => {
-      this.result = response;
+      this.studentApprovalState = response;
     })
   }
 
-  studentResult() {
+  getStudentApprovalState(): void {
     const additionTotal = this.addition(10, 20);
-    return (additionTotal < 40) ? "fail" : "pass";
+    this.studentApprovalState = (additionTotal < 40) ? "fail" : "pass";
   }
 
   logToConsole(data: any): void {
