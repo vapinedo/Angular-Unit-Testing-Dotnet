@@ -1,5 +1,9 @@
 <p>student works!</p>
 
+<button (click)="onDecrement()">Decrement</button>
+<button (click)="onIncrement()" id="increase-button">Increment</button>
+
 <button (click)="getStudentApprovalState()">Get restul</button>
 
-<h1>{{ studentApprovalState }}</h1>
+<h1 id="student-approval-state">{{ studentApprovalState }}</h1>
+<h2 id="counter-value">{{ counterValue }}</h2>

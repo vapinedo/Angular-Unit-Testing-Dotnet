@@ -9,6 +9,7 @@ import { StudentService } from '../services/student.service';
 export class StudentComponent implements OnInit {
   additonResult: number = 0;
   studentApprovalState: any;
+  counterValue: number = 0;
 
   constructor(private studentSvc: StudentService) { }
 
@@ -39,6 +40,14 @@ export class StudentComponent implements OnInit {
 
   logToConsole(data: any): void {
     console.log(data);
+  }
+
+  onDecrement(): void {
+    this.counterValue -= 1;
+  }
+
+  onIncrement(): void {
+    this.counterValue = this.counterValue + 1;
   }
 
 }

@@ -1,13 +1,16 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { of } from 'rxjs';
+import { DebugElement } from '@angular/core';
+import { By } from '@angular/platform-browser';
 import { StudentComponent } from './student.component';
 import { HttpClientModule } from "@angular/common/http";
 import { StudentService } from '../services/student.service';
-import { of } from 'rxjs';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 describe('StudentComponent', () => {
   let component: StudentComponent;
   let fixture: ComponentFixture<StudentComponent>;
   let h1Tag: HTMLElement;
+  let debug: DebugElement
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -21,6 +24,7 @@ describe('StudentComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
     h1Tag = fixture.nativeElement.querySelector("h1");
+    debug = fixture.debugElement;
   });
 
   it('should create', () => {
@@ -38,6 +42,14 @@ describe('StudentComponent', () => {
     component.getStudentApprovalState();
     fixture.detectChanges();
     expect(component.studentApprovalState).toBe("fail");
+  });
+
+  it("should increase counterValue when increase button is clicked", function() {
+    const counterValue = debug.query(By.css("#counter-value"));
+    const increaseButton = debug.query(By.css("#increase-button"));
+    increaseButton.triggerEventHandler("click", {});
+    fixture.detectChanges();
+    expect(component.counterValue).toEqual(Number(counterValue.nativeElement.innerText));
   });
   
   describe("AdditionMethod", function() {
