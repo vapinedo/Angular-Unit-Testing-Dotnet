@@ -10,6 +10,7 @@ export class StudentComponent implements OnInit {
   additonResult: number = 0;
   studentApprovalState: any;
   counterValue: number = 0;
+  private componentName: string = "";
 
   constructor(private studentSvc: StudentService) { }
 
@@ -19,6 +20,10 @@ export class StudentComponent implements OnInit {
   addition(num1: number, num2:number): number {
     this.additonResult = num1 + num2;
     return this.additonResult;
+  }
+
+  private setComponentName(): void {
+    this.componentName =  "StudentComponent";
   }
 
   saveData(): void {

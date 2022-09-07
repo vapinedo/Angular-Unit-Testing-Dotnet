@@ -51,6 +51,11 @@ describe('StudentComponent', () => {
     fixture.detectChanges();
     expect(component.counterValue).toEqual(Number(counterValue.nativeElement.innerText));
   });
+
+  it("should be call or run the setDisplayName private method", function() {
+    component["setComponentName"]();
+    expect(component["componentName"]).toBe("StudentComponent");
+  });
   
   describe("AdditionMethod", function() {
     xit("should spy on addition method", function() {
