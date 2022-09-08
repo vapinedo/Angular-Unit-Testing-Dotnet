@@ -13,6 +13,7 @@ export class StudentComponent implements OnInit {
   private componentName: string = "";
   studentName: string = "Valp Pinedo";
   studentAge: number = 20;
+  isInputReaonly: boolean = false;
 
   constructor(private studentSvc: StudentService) { }
 

@@ -70,6 +70,11 @@ describe('StudentComponent', () => {
     fixture.detectChanges();
     expect(studentName.innerHTML).toBe(component.studentName);
   });
+
+  it("should test property binding is working fine", function() {
+    const studentInputText: HTMLInputElement = fixture.debugElement.nativeElement.querySelector("#student-input-text");
+    expect(studentInputText.readOnly).toBeFalse();
+  });
   
   describe("AdditionMethod", function() {
     xit("should spy on addition method", function() {
