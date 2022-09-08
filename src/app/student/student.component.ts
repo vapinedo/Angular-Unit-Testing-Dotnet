@@ -11,6 +11,8 @@ export class StudentComponent implements OnInit {
   studentApprovalState: any;
   counterValue: number = 0;
   private componentName: string = "";
+  studentName: string = "Valp Pinedo";
+  studentAge: number = 20;
 
   constructor(private studentSvc: StudentService) { }
 

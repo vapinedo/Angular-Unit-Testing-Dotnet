@@ -62,6 +62,14 @@ describe('StudentComponent', () => {
     spyOnSetComponentName();
     expect(spyOnSetComponentName).toHaveBeenCalled();
   });
+
+  it("should test interpolation is working fine", function() {
+    const studentName: HTMLElement = fixture.debugElement.nativeElement.querySelector("#student-name");
+    expect(studentName.innerHTML).toBe(component.studentName);
+    component.studentName = "Karin Benzema";
+    fixture.detectChanges();
+    expect(studentName.innerHTML).toBe(component.studentName);
+  });
   
   describe("AdditionMethod", function() {
     xit("should spy on addition method", function() {
