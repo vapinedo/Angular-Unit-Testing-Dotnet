@@ -56,6 +56,12 @@ describe('StudentComponent', () => {
     component["setComponentName"]();
     expect(component["componentName"]).toBe("StudentComponent");
   });
+
+  it("should spy on setDisplayName private method", function() {
+    let spyOnSetComponentName = spyOn<any>(component, "setComponentName");
+    spyOnSetComponentName();
+    expect(spyOnSetComponentName).toHaveBeenCalled();
+  });
   
   describe("AdditionMethod", function() {
     xit("should spy on addition method", function() {
