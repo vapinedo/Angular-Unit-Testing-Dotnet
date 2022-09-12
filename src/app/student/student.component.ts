@@ -15,6 +15,10 @@ export class StudentComponent implements OnInit {
   studentAge: number = 20;
   isInputReaonly: boolean = false;
 
+  num: number = 20;
+  redColor: string = "font-red";
+  blueColor: string = "font-blue";
+
   constructor(private studentSvc: StudentService) { }
 
   ngOnInit(): void {

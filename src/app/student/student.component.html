@@ -14,3 +14,6 @@
 <p id="student-age">{{ studentAge }}</p>
 
 <input type="text" [readonly]="isInputReaonly" id="student-input-text">
+
+<p [ngStyle]="{'color': (num > 10 ? 'black' : 'green')}" id="header1">Student Portal</p>
+<h1 [ngClass]="num > 10 ? 'font-blue' : 'font-red'" id="header2">Is number greater than 10?</h1>

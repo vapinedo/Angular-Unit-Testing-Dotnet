@@ -75,6 +75,18 @@ describe('StudentComponent', () => {
     const studentInputText: HTMLInputElement = fixture.debugElement.nativeElement.querySelector("#student-input-text");
     expect(studentInputText.readOnly).toBeFalse();
   });
+
+  it("should test the ngStyle directive for p tag", function() {
+    const element = fixture.debugElement.nativeElement.querySelector("#header1");
+    expect(element.getAttribute("style")).toContain("color: black");
+  });
+
+  it("should test the ngClass directive for h1 tag", function() {
+    const element = fixture.debugElement.nativeElement.querySelector("#header2");
+    component.num = 5;
+    fixture.detectChanges();
+    expect(element.getAttribute("class")).toContain("font-red");
+  });
   
   describe("AdditionMethod", function() {
     xit("should spy on addition method", function() {
