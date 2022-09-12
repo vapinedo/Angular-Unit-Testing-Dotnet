@@ -87,6 +87,44 @@ describe('StudentComponent', () => {
     fixture.detectChanges();
     expect(element.getAttribute("class")).toContain("font-red");
   });
+
+  it("should test table colspan attribute", function() {
+    const element: HTMLTableElement = fixture.debugElement.nativeElement.querySelector("#table1");
+    expect(element.getAttribute("colspan")).toBe(String(component.columnSpan));
+  });
+
+  it("should test click event binding on button #1", function() {
+    const element: HTMLButtonElement = fixture.debugElement.nativeElement.querySelector("#button1");
+    expect(component.label).toEqual("Real Madrid");
+    element.click();
+    fixture.detectChanges();
+    expect(component.label).toBe("Real Madrid will win the UCL once more time!");
+  });
+
+  it("should test click event binding on button #2", function() {
+    const element: HTMLButtonElement = fixture.debugElement.nativeElement.querySelector("#button2");
+    expect(component.label).toBe("Real Madrid");
+    element.click();
+    fixture.detectChanges();
+    expect(component.label).toBe("Real Madrid will win The Ligue this season");
+  });
+
+  it("should test changeInput event binding on input #1", function() {
+    const element = HTMLInputElement = fixture.debugElement.nativeElement.querySelector("#textBox1");
+    expect(component.label).toBe("Real Madrid");
+    element.dispatchEvent(new Event("input"));
+    fixture.detectChanges();
+    expect(component.label).toBe("Karim Benzema will be gain FIFA Best Soccer Player this year");
+  });
+
+  it("should test changeInputLabel event binding on input #2", function() {
+    const element = HTMLInputElement = fixture.debugElement.nativeElement.querySelector("#textBox2");
+    expect(component.label).toBe("Real Madrid");
+    element.value = "Message - updated";
+    element.dispatchEvent(new Event("input"));
+    fixture.detectChanges();
+    expect(component.label).toBe("Message - updated");
+  });
   
   describe("AdditionMethod", function() {
     xit("should spy on addition method", function() {

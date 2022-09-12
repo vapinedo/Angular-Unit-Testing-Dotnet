@@ -17,3 +17,31 @@
 
 <p [ngStyle]="{'color': (num > 10 ? 'black' : 'green')}" id="header1">Student Portal</p>
 <h1 [ngClass]="num > 10 ? 'font-blue' : 'font-red'" id="header2">Is number greater than 10?</h1>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th [attr.colspan]="columnSpan" id="table1">{{ pageHeader }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>First Name</td>
+            <td>{{ firstName }}</td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td>{{ lastName }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<hr>
+
+<button id="button1" (click)="onButton1Click()" style="color: blue" Button1 Click Event></button>
+<button id="button2" (click)="onButton2Click()" style="color: blue" Button2 Click Event></button>
+
+<input type="text" id="textBox1" placeholder="Button 1 on value change" (input)="onChangeInput()">
+<input type="text" id="textBox2" placeholder="Button 2 on value change" (input)="onChangeLabelInput($event)">
+
+<h3>{{ label }}</h3>

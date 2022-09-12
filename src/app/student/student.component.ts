@@ -19,6 +19,13 @@ export class StudentComponent implements OnInit {
   redColor: string = "font-red";
   blueColor: string = "font-blue";
 
+  pageHeader: string = "Student Informatión";
+  firstName: string = "John";
+  lastName: string = "Doe";
+  columnSpan = 2;
+
+  label: string = "Real Madrid";
+
   constructor(private studentSvc: StudentService) { }
 
   ngOnInit(): void {
@@ -60,6 +67,22 @@ export class StudentComponent implements OnInit {
 
   onIncrement(): void {
     this.counterValue = this.counterValue + 1;
+  }
+
+  onButton1Click(): void {
+    this.label = "Real Madrid will win the UCL once more time!";
+  }
+
+  onButton2Click(): void {
+    this.label = "Real Madrid will win The Ligue this season";
+  }
+
+  onChangeInput(): void {
+    this.label = "Karim Benzema will be gain FIFA Best Soccer Player this year";
+  }
+
+  onChangeLabelInput(event: any): void {
+    this.label = event.target.value;
   }
 
 }
