@@ -5,7 +5,7 @@ import { By } from '@angular/platform-browser';
 import { StudentComponent } from './student.component';
 import { HttpClientModule } from "@angular/common/http";
 import { StudentService } from '../services/student.service';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
 
 describe('StudentComponent', () => {
   let component: StudentComponent;
@@ -137,17 +137,35 @@ describe('StudentComponent', () => {
         done();
       })
     });
-    
-    it("should textBox studentName value", function(done) {
-      fixture.detectChanges();
-      fixture.whenStable()
+
+  it("should set new value for studenName property - using waitForAsync method", waitForAsync(() => {
+    component.studentName = "Eden Hazard";
+    fixture.detectChanges();
+    fixture.whenStable()
       .then(function() {
         const element: HTMLInputElement = fixture.debugElement.nativeElement.querySelector("#student-name-input");
-        element.value = "studentName updated";
-        element.dispatchEvent(new Event("input"));
-        expect(element.value).toBe(component.studentName);
-        done();
-      });
+        expect(element.value).toBe("Eden Hazard");
+      })
+  }));
+
+  it("should set new value for studenName property - using fakeAsync method", fakeAsync(() => {
+    component.studentName = "Eden Hazard";
+    fixture.detectChanges();
+    tick();
+    const element: HTMLInputElement = fixture.debugElement.nativeElement.querySelector("#student-name-input");
+    expect(element.value).toBe("Eden Hazard");
+  }));
+    
+  it("should textBox studentName value", function(done) {
+    fixture.detectChanges();
+    fixture.whenStable()
+    .then(function() {
+      const element: HTMLInputElement = fixture.debugElement.nativeElement.querySelector("#student-name-input");
+      element.value = "studentName updated";
+      element.dispatchEvent(new Event("input"));
+      expect(element.value).toBe(component.studentName);
+      done();
+    });
   });
   
   describe("AdditionMethod", function() {
