@@ -1,4 +1,5 @@
 import { of } from 'rxjs';
+import { FormsModule } from '@angular/forms';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { StudentComponent } from './student.component';
@@ -15,7 +16,7 @@ describe('StudentComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ StudentComponent ],
-      imports: [HttpClientModule],
+      imports: [HttpClientModule, FormsModule],
       providers: [StudentService],
     })
     .compileComponents();
@@ -124,6 +125,29 @@ describe('StudentComponent', () => {
     element.dispatchEvent(new Event("input"));
     fixture.detectChanges();
     expect(component.label).toBe("Message - updated");
+  });
+
+  it("should set new value for studenName property", function(done) {
+    component.studentName = "Eden Hazard";
+    fixture.detectChanges();
+    fixture.whenStable()
+      .then(function() {
+        const element: HTMLInputElement = fixture.debugElement.nativeElement.querySelector("#student-name-input");
+        expect(element.value).toBe("Eden Hazard");
+        done();
+      })
+    });
+    
+    it("should textBox studentName value", function(done) {
+      fixture.detectChanges();
+      fixture.whenStable()
+      .then(function() {
+        const element: HTMLInputElement = fixture.debugElement.nativeElement.querySelector("#student-name-input");
+        element.value = "studentName updated";
+        element.dispatchEvent(new Event("input"));
+        expect(element.value).toBe(component.studentName);
+        done();
+      });
   });
   
   describe("AdditionMethod", function() {

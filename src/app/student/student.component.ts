@@ -85,4 +85,8 @@ export class StudentComponent implements OnInit {
     this.label = event.target.value;
   }
 
+  setName(): void {
+    this.studentName = "Dani Carvajal";
+  }
+
 }

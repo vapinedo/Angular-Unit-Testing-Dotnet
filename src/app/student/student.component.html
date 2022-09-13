@@ -45,3 +45,9 @@
 <input type="text" id="textBox2" placeholder="Button 2 on value change" (input)="onChangeLabelInput($event)">
 
 <h3>{{ label }}</h3>
+
+<hr>
+
+<input type="text" id="student-name-input" [(ngModel)]="studentName">
+<h2>{{ studentName }}</h2>
+<button (click)="setName()" id="button3">Set Student Name</button>
