@@ -183,6 +183,32 @@ describe('StudentComponent', () => {
     expect(element1).toBeNull();
     expect(element2).not.toBeNull(); 
   });
+
+  it("should test ngFor1 for simple array", function() {
+    const element: DebugElement[] = fixture.debugElement.queryAll(By.css(".ngFor1"));
+    expect(element.length).toBe(4);
+    element.forEach((obj: DebugElement, index: number) => {
+      expect(obj.children[0].nativeElement.innerHTML.trim()).toEqual(component.colorNames[index]);
+    });
+  });
+
+  it("should test ngFor2 for simple array", function() {
+    const element: DebugElement[] = fixture.debugElement.queryAll(By.css(".ngFor2"));
+    expect(element.length).toBe(4);
+    element.forEach((obj: DebugElement, index: number) => {
+      expect(obj.children[0].nativeElement.innerHTML.trim())
+      .toEqual(component.colorList[index].name + " - " + component.colorList[index].id);
+    });
+  });
+
+  it("should test ngFor3 for simple array", function() {
+    const element: DebugElement[] = fixture.debugElement.queryAll(By.css(".ngFor3"));
+    expect(element.length).toBe(4);
+    element.forEach((obj: DebugElement, index: number) => {
+      const output = `${index} - ${index === 0 ? true : false} - ${element.length-1 === index ? true : false} - ${index % 2 === 0} - ${index % 2 !== 0}`;
+      expect(obj.children[0].nativeElement.innerHTML.trim()).toEqual(output);
+    });
+  });
   
   describe("AdditionMethod", function() {
     xit("should spy on addition method", function() {

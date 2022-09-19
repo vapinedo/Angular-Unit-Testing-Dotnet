@@ -10,6 +10,7 @@ export class StudentComponent implements OnInit {
   additonResult: number = 0;
   studentApprovalState: any;
   counterValue: number = 0;
+
   private componentName: string = "";
   studentName: string = "Valp Pinedo";
   studentAge: number = 20;
@@ -25,6 +26,14 @@ export class StudentComponent implements OnInit {
   columnSpan = 2;
 
   label: string = "Real Madrid";
+
+  colorNames = ["black", "white", "blue", "green"];
+  colorList= [
+    { name: "black", id: 1 },
+    { name: "white", id: 2 },
+    { name: "blue", id: 3 },
+    { name: "green", id: 4 },
+  ];
 
   constructor(private studentSvc: StudentService) { }
 
