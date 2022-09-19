@@ -15,7 +15,7 @@ export class StudentComponent implements OnInit {
   studentAge: number = 20;
   isInputReaonly: boolean = false;
 
-  num: number = 20;
+  num: number = 25;
   redColor: string = "font-red";
   blueColor: string = "font-blue";
 

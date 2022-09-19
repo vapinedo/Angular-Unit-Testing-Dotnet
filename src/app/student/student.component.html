@@ -51,3 +51,23 @@
 <input type="text" id="student-name-input" [(ngModel)]="studentName">
 <h2>{{ studentName }}</h2>
 <button (click)="setName()" id="button3">Set Student Name</button>
+
+<hr>
+
+<div *ngIf="num >= 20" id="div1">
+    Number is greater than and equal to 20
+</div>
+
+<div *ngIf="num < 20" id="div2">
+    Number is smaller than 20
+</div>
+
+<div *ngIf="num >= 20; then trueCase; else falseCase" id="div3"></div>
+
+<ng-template #trueCase>
+    <p id="ng1">Number is greater than 20 ng-template</p>
+</ng-template>
+
+<ng-template #falseCase>
+    <p id="ng2">Number is smaller than 20 ng-template</p>
+</ng-template>

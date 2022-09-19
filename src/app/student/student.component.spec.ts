@@ -167,6 +167,22 @@ describe('StudentComponent', () => {
       done();
     });
   });
+
+  it("should test num property is greater than 20", function() {
+    const element1: HTMLDivElement = fixture.debugElement.nativeElement.querySelector("#div1");
+    const element2: HTMLDivElement = fixture.debugElement.nativeElement.querySelector("#div2");
+    expect(element1).not.toBeNull();
+    expect(element2).toBeNull();
+  });
+
+  it("should test num property is smaller than 20 :: ng-template", function() {
+    component.num = 15; 
+    fixture.detectChanges();
+    const element1: HTMLParagraphElement = fixture.debugElement.nativeElement.querySelector("#ng1");
+    const element2: HTMLParagraphElement = fixture.debugElement.nativeElement.querySelector("#ng2");
+    expect(element1).toBeNull();
+    expect(element2).not.toBeNull(); 
+  });
   
   describe("AdditionMethod", function() {
     xit("should spy on addition method", function() {
