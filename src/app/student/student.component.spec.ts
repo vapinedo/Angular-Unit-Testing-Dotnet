@@ -12,6 +12,8 @@ describe('StudentComponent', () => {
   let fixture: ComponentFixture<StudentComponent>;
   let h1Tag: HTMLElement;
   let debug: DebugElement
+  let service: StudentService;
+  let service2: StudentService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -26,6 +28,18 @@ describe('StudentComponent', () => {
     fixture.detectChanges();
     h1Tag = fixture.nativeElement.querySelector("h1");
     debug = fixture.debugElement;
+    service = TestBed.get(StudentService);
+    service2 = TestBed.inject(StudentService);
+  });
+
+  describe("StudentService", function() {
+    it("should load the StudentService via TestBed using get method", function() {
+      expect(service instanceof(StudentService)).toBeTrue();
+    });
+  
+    it("should load the StudentService via TestBed using inject method", function() {
+      expect(service2 instanceof(StudentService)).toBeTrue();
+    });
   });
 
   it('should create', () => {
@@ -209,6 +223,8 @@ describe('StudentComponent', () => {
       expect(obj.children[0].nativeElement.innerHTML.trim()).toEqual(output);
     });
   });
+
+
   
   describe("AdditionMethod", function() {
     xit("should spy on addition method", function() {
